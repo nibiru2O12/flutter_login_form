@@ -1,0 +1,75 @@
+
+import 'package:flutter/material.dart';
+import 'package:flutter_form/Header.dart';
+import 'package:flutter_form/common/ColumnSpacer.dart';
+import 'package:flutter_form/common/ExpandedButton.dart';
+import 'package:flutter_form/common/RoundedTextField.dart';
+
+class ForgetPassword extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Forgot Password"),
+      ),
+      body: Container(
+        padding: EdgeInsets.all(20),
+        child: ListView(
+          children: <Widget>[
+            ColumnSpacer(
+              spacing: 16,
+              children: <Widget>[
+                Header(),
+                buildTitle(),
+                buildContent(),
+                RoundedTextField(
+                  placeholder: "Email address",
+                ),
+                buildSendButton(),
+                buildBackButton(context)
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  ExpandedButton buildSendButton() {
+    return ExpandedButton(
+                shape: ButtonShape.RounderCorner,
+                text: Text(
+                  "SEND",
+                  style: TextStyle(
+                      color: Colors.white, fontSize: 18, letterSpacing: 1),
+                ),
+              );
+  }
+
+  FlatButton buildBackButton(BuildContext context) {
+    return FlatButton(
+                child: Text("Back"),
+                onPressed: () => Navigator.pop(context),
+              );
+  }
+
+  Container buildContent() {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 8),
+      child: Text(
+        "Enter the email address you use and you will receive an email a link for changing your password",
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center,
+        style: TextStyle(height: 2),
+      ),
+    );
+  }
+
+  Container buildTitle() {
+    return Container(
+        child: Text(
+      "Forgot you password?",
+      textAlign: TextAlign.center,
+      style: TextStyle(fontSize: 20),
+    ));
+  }
+}
