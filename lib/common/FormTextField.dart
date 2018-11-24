@@ -14,7 +14,7 @@ class FormTextField extends StatefulWidget {
   final Widget prefix;
   final Widget suffix;
   final bool isObscurable;
-  
+
   /// Will only be visible when no shape is defined
   final String helperText;
   final TextShape shape;
@@ -35,13 +35,6 @@ class FormTextField extends StatefulWidget {
 
 class _FormTextFieldState extends State<FormTextField> {
   bool isHidden = true;
-
-  String validator(String value) {
-    if (value == null || value.isEmpty) {
-      return "Enter your Password";
-    }
-    return null;
-  }
 
   togglePasswordVisibility() {
     setState(() {
@@ -76,10 +69,9 @@ class _FormTextFieldState extends State<FormTextField> {
       // margin: EdgeInsets.only(bottom: widget.helperText.isEmpty ? 20 : 30),
       builder: (decoration) => TextFormField(
           obscureText: widget.isObscurable ? isHidden : false,
-          // validator: validator,
+          validator: widget.validator,
           autofocus: true,
-          decoration: decoration
-          ),
+          decoration: decoration),
     );
   }
 

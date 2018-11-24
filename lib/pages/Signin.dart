@@ -83,7 +83,6 @@ class SiginState extends State<Sigin> {
       name: "password",
       placeholder: "Password",
       isObscurable: true,
-      helperText: "Enter your password correctly",
       shape: TextShape.RoundedCorner,
     );
   }
@@ -92,7 +91,6 @@ class SiginState extends State<Sigin> {
     return new FormTextField(
       name: "email",
       placeholder: "Email Address",
-      helperText: "Please input a valid email address",
       shape: TextShape.RoundedCorner,
     );
   }
@@ -114,7 +112,11 @@ class SiginState extends State<Sigin> {
         style: TextStyle(color: Colors.white, fontSize: 18, letterSpacing: 1),
       ),
       shape: ButtonShape.RounderCorner,
-      onPressed: ()=>print("sigin"),
+      onPressed: (){
+        if(_formKey.currentState.validate()){
+          print('you are logged in');
+        }
+      },
     );
   }
 }
