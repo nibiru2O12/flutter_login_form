@@ -82,7 +82,6 @@ class _FormTextFieldState extends State<FormTextField> {
           obscureText: widget.isObscurable ? isHidden : false,
           validator: widget.validator,
           keyboardType: widget.keyboardType,
-
           decoration: decoration),
     );
   }
