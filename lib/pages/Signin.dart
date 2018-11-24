@@ -84,6 +84,7 @@ class SiginState extends State<Sigin> {
       placeholder: "Password",
       isObscurable: true,
       shape: TextShape.RoundedCorner,
+      validator: (value)=>value.isEmpty ? "Please enter your password" : null ,
     );
   }
 
@@ -92,6 +93,7 @@ class SiginState extends State<Sigin> {
       name: "email",
       placeholder: "Email Address",
       shape: TextShape.RoundedCorner,
+      validator: (value)=>value.isEmpty ? "Please enter your email" : null ,
     );
   }
 
