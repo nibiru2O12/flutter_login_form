@@ -22,6 +22,14 @@ class Signup extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           Header(),
+           Padding(
+            padding: const EdgeInsets.symmetric(vertical: 24),
+            child: Text(
+              "Welcome!",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 18),
+            ),
+          ),
           ColumnSpacer(
             spacing: 16,
             children: <Widget>[

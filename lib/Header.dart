@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
@@ -9,7 +8,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 16),
+      margin: EdgeInsets.only(bottom: 8),
       child: Column(
         children: <Widget>[
           Icon(
@@ -17,13 +16,6 @@ class Header extends StatelessWidget {
             size: 150,
             color: Colors.accents[5],
           ),
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Text(
-              "Welcome!",
-              style: TextStyle(fontSize: 18),
-            ),
-          )
         ],
       ),
     );
