@@ -7,20 +7,25 @@ enum TextShape {
 }
 
 class FormTextField extends StatefulWidget {
+  final Key key;
   final Function validator;
   final String placeholder;
   final String name;
   final String label;
   final Widget prefix;
   final Widget suffix;
+  final TextInputType keyboardType;
   final bool isObscurable;
+  final Function onSubmit;
+  final TextInputAction actionType;
 
   /// Will only be visible when no shape is defined
   final String helperText;
   final TextShape shape;
 
   FormTextField(
-      {@required this.name,
+      {this.key,
+      @required this.name,
       this.placeholder,
       this.label,
       this.isObscurable = false,
@@ -28,7 +33,11 @@ class FormTextField extends StatefulWidget {
       this.suffix,
       this.helperText = "",
       this.validator,
-      this.shape});
+      this.shape,
+      this.keyboardType,
+      this.onSubmit,
+      this.actionType})
+      : super(key: key);
 
   _FormTextFieldState createState() => _FormTextFieldState();
 }
@@ -68,9 +77,12 @@ class _FormTextFieldState extends State<FormTextField> {
       ),
       // margin: EdgeInsets.only(bottom: widget.helperText.isEmpty ? 20 : 30),
       builder: (decoration) => TextFormField(
+          textInputAction: widget.actionType,
+          onFieldSubmitted: widget.onSubmit,
           obscureText: widget.isObscurable ? isHidden : false,
           validator: widget.validator,
-          autofocus: true,
+          keyboardType: widget.keyboardType,
+
           decoration: decoration),
     );
   }
